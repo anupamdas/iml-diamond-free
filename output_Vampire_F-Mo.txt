@@ -1,0 +1,106 @@
+% START OF SYSTEM OUTPUT
+% Running in auto input_syntax mode. Trying TPTP
+% TRYING [1]
+% TRYING [2]
+% TRYING [3]
+% TRYING [4]
+% Finite Model Found!
+% SZS status Satisfiable for SOT_XkzoJK
+% SZS output start FiniteModel for SOT_XkzoJK
+tff('declare_$i1',type,'fmb_$i_1':$i).
+tff('declare_$i2',type,'fmb_$i_2':$i).
+tff('declare_$i3',type,'fmb_$i_3':$i).
+tff('declare_$i4',type,'fmb_$i_4':$i).
+tff('finite_domain_$i',axiom,
+      ! [X:$i] : (
+         X = 'fmb_$i_1' | X = 'fmb_$i_2' | X = 'fmb_$i_3' | X = 'fmb_$i_4'
+      ) ).
+
+tff('distinct_domain_$i',axiom,
+         'fmb_$i_1' != 'fmb_$i_2' & 'fmb_$i_1' != 'fmb_$i_3' & 'fmb_$i_1' != 'fmb_$i_4' & 'fmb_$i_2' != 'fmb_$i_3' & 'fmb_$i_2' != 'fmb_$i_4' & 
+         'fmb_$i_3' != 'fmb_$i_4'
+).
+
+tff(declare_o,type,o: ($i * $i) > $o).
+tff(predicate_o,axiom,
+           o('fmb_$i_1','fmb_$i_1')
+         & o('fmb_$i_1','fmb_$i_2')
+         & o('fmb_$i_1','fmb_$i_3')
+         & o('fmb_$i_1','fmb_$i_4')
+         & ~o('fmb_$i_2','fmb_$i_1')
+         & o('fmb_$i_2','fmb_$i_2')
+         & ~o('fmb_$i_2','fmb_$i_3')
+         & ~o('fmb_$i_2','fmb_$i_4')
+         & ~o('fmb_$i_3','fmb_$i_1')
+         & o('fmb_$i_3','fmb_$i_2')
+         & o('fmb_$i_3','fmb_$i_3')
+         & o('fmb_$i_3','fmb_$i_4')
+         & ~o('fmb_$i_4','fmb_$i_1')
+         & ~o('fmb_$i_4','fmb_$i_2')
+         & ~o('fmb_$i_4','fmb_$i_3')
+         & o('fmb_$i_4','fmb_$i_4')
+
+).
+
+tff(declare_p0,type,p0: ($i) > $o).
+tff(predicate_p0,axiom,
+           ~p0('fmb_$i_1')
+         & ~p0('fmb_$i_2')
+         & ~p0('fmb_$i_3')
+         & p0('fmb_$i_4')
+
+).
+
+tff(declare_p1,type,p1: ($i) > $o).
+tff(predicate_p1,axiom,
+           ~p1('fmb_$i_1')
+         & p1('fmb_$i_2')
+         & ~p1('fmb_$i_3')
+         & ~p1('fmb_$i_4')
+
+).
+
+tff(declare_q,type,q: ($i) > $o).
+tff(predicate_q,axiom,
+           ~q('fmb_$i_1')
+         & q('fmb_$i_2')
+         & q('fmb_$i_3')
+         & q('fmb_$i_4')
+
+).
+
+tff(declare_r,type,r: ($i * $i) > $o).
+tff(predicate_r,axiom,
+           r('fmb_$i_1','fmb_$i_1')
+         & r('fmb_$i_1','fmb_$i_2')
+         & r('fmb_$i_1','fmb_$i_3')
+         & r('fmb_$i_1','fmb_$i_4')
+         & ~r('fmb_$i_2','fmb_$i_1')
+         & ~r('fmb_$i_2','fmb_$i_2')
+         & ~r('fmb_$i_2','fmb_$i_3')
+         & r('fmb_$i_2','fmb_$i_4')
+         & ~r('fmb_$i_3','fmb_$i_1')
+         & r('fmb_$i_3','fmb_$i_2')
+         & ~r('fmb_$i_3','fmb_$i_3')
+         & ~r('fmb_$i_3','fmb_$i_4')
+         & ~r('fmb_$i_4','fmb_$i_1')
+         & r('fmb_$i_4','fmb_$i_2')
+         & ~r('fmb_$i_4','fmb_$i_3')
+         & ~r('fmb_$i_4','fmb_$i_4')
+
+).
+
+% SZS output end FiniteModel for SOT_XkzoJK
+% ------------------------------
+% Version: Vampire 4.9 (Release build, commit c4b2bca23 on 2025-03-14 15:27:07 +0100)
+% Linked with Z3 4.14.0.0 3c47fd96cf5645d0c42b2c819d9e9a84380aa721 z3-4.8.4-9178-g3c47fd96c
+% Termination reason: Satisfiable
+
+% Time elapsed: 0.014 s
+% Peak memory usage: 8 MB
+% ------------------------------
+% ------------------------------
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_XkzoJK - Vampire-FMo---4.9 says Satisfiable - CPU = 0.00 WC = 0.01 
+% OUTPUT: SOT_XkzoJK - Vampire-FMo---4.9 says FiniteModel - CPU = 0.00 WC = 0.01 
