@@ -1,0 +1,47 @@
+fof(ord_refl,axiom,(
+	! [X] : o(X,X) )).
+
+fof(ord_trans,axiom,(
+	! [X,Y,Z] : ((o(X,Y) & o(Y,Z)) => o(X,Z)))).
+
+fof(pers,axiom,(
+  ! [X,Y] : (o(X,Y) => ((p0(X) => p0(Y)) & (p1(X) => p1(Y)) & (q(X) => q(Y)) ))
+)).
+
+fof(ikn_cond,axiom,(
+	! [A,B,C] : ((r(A,B) & o(B,C)) => 
+				(? [D] : (o(A,D) & r(D,C) &
+					(
+						! [E] : ((o(D,E) =>
+						(
+							? [F] : (r(E,F) & o(C,F))
+						)
+						))
+					))
+				)
+	)
+)).
+
+
+fof(fmla,axiom,(
+	~ (! [X] : (! [Y] : (o(X,Y) => (  
+                            (! [Z] : (o(Y,Z) => (
+                                            ( ! [U] : (o(Z,U) => (
+                                                                (! [V,W] : (o(U,V) => (r(V,W) => (p0(W) | p1(W) ) ) ))
+                                                                => ( (! [V] : (o(U,V) => (~ ( ! [W,A] : (o(V,W) => (r(W,A) => (! [B] : (o(A,B) => (~p0(B))) ) ) ) ) ) )  )  
+                                                                    |(! [V] : (o(U,V) => (~ ( ! [W,A] : (o(V,W) => (r(W,A) => (! [B] : (o(A,B) => (~p1(B))) ) ) ) ) ) )  )   )
+                                            ) ) )
+                                            => (! [W,V] : (o(Z,W) => (r(W,V) => q(V)) ))
+                            ) )  )
+                            => (! [Z,V] : (o(Y,Z) => (r(Z,V) => q(V)) ) )
+    )))
+))).
+
+
+fof(num_redges_leq4,axiom,(
+  ? [X0,Y0,X1,Y1,X2,Y2,X3,Y3] : (! [U,V] : (r(U,V) => ( (U=X0 & V = Y0) | (U=X1 & V = Y1) | (U=X2 & V = Y2) | (U=X3 & V = Y3)    ) ))
+)).
+
+fof(num_nodes_leq4,axiom,(
+  ? [X0,X1,X2,X3] : (! [Y] : (Y = X0 | Y = X1 | Y = X2 | Y = X3 ) )
+)).
